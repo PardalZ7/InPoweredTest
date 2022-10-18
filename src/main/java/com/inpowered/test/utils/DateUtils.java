@@ -1,4 +1,4 @@
-package com.inpowered.test.Utils;
+package com.inpowered.test.utils;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;

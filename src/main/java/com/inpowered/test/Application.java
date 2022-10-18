@@ -1,12 +1,11 @@
 package com.inpowered.test;
 
-import com.inpowered.test.Utils.Messages;
+import com.inpowered.test.utils.Messages;
 import com.inpowered.test.config.AppConfig;
 import com.inpowered.test.entities.AddressBook;
 import com.inpowered.test.entities.Person;
 import com.inpowered.test.entities.enums.Option;
 import com.inpowered.test.entities.enums.SexType;
-import com.inpowered.test.exceptions.InputExceptions.InvalidInputException;
 import com.inpowered.test.services.FileManager;
 import com.inpowered.test.services.FileOperations;
 import org.springframework.beans.factory.annotation.Autowired;

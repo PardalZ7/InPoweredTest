@@ -1,6 +1,6 @@
 package com.inpowered.test.services.impl;
 
-import com.inpowered.test.Utils.DateUtils;
+import com.inpowered.test.utils.DateUtils;
 import com.inpowered.test.entities.AddressBook;
 import com.inpowered.test.entities.Person;
 import com.inpowered.test.entities.enums.SexType;

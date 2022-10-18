@@ -1,7 +1,6 @@
 package com.inpowered.test.entities.enums;
 
-import com.inpowered.test.Utils.Messages;
-import com.inpowered.test.exceptions.InputExceptions.InvalidInputException;
+import com.inpowered.test.utils.Messages;
 import com.inpowered.test.exceptions.InputExceptions.InvalidSexTypeException;
 
 public enum SexType {

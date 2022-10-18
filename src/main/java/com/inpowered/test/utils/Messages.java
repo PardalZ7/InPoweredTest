@@ -1,6 +1,4 @@
-package com.inpowered.test.Utils;
-
-import java.util.Locale;
+package com.inpowered.test.utils;
 
 public class Messages {
 
