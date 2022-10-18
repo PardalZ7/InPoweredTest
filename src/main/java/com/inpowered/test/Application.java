@@ -140,7 +140,7 @@ public class Application implements CommandLineRunner {
         System.out.println(Messages.WRITE_FILE_PATH);
         try {
             String path = sc.next();
-            CURRENT_ADDRESS_BOOK = fileManager.readFile("C:\\Users\\alexa\\Downloads\\AddressBook.txt");
+            CURRENT_ADDRESS_BOOK = fileManager.readFile(path);
             System.out.println(String.format(Messages.FILE_SUCCESSFULLE_PARSED, path));
         } catch (IOException e) {
             System.out.println(e.getMessage());
