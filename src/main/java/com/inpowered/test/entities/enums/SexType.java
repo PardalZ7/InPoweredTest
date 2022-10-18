@@ -6,13 +6,28 @@ import com.inpowered.test.exceptions.InputExceptions.InvalidSexTypeException;
 
 public enum SexType {
 
-    MALE ("Male"),
-    FEMALE ("Female");
+    MALE (1, "Male"),
+    FEMALE (2, "Female");
 
+    private int index;
     private String description;
 
-    SexType(String description) {
+    SexType(int index, String description) {
+        this.index = index;
         this.description = description;
+    }
+
+    public static SexType getByIndex(int index) {
+
+        for (SexType sex : SexType.values()) {
+
+            if (sex.index == index)
+                return sex;
+
+        }
+
+        return null;
+
     }
 
     public static SexType getByDesc(String description) {
@@ -24,7 +39,15 @@ public enum SexType {
 
         }
 
-        throw new InvalidSexTypeException(String.format(Messages.INVALID_INPUT_MESSAGE, description));
+        throw new InvalidSexTypeException(String.format(Messages.INVALID_SEXTYPE_MESSAGE, description));
 
+    }
+
+    public int getIndex() {
+        return index;
+    }
+
+    public String getDescription() {
+        return description;
     }
 }

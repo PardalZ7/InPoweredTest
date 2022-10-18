@@ -4,7 +4,9 @@ import com.inpowered.test.Utils.Messages;
 import com.inpowered.test.config.AppConfig;
 import com.inpowered.test.entities.AddressBook;
 import com.inpowered.test.entities.enums.Option;
+import com.inpowered.test.entities.enums.SexType;
 import com.inpowered.test.services.FileManager;
+import com.inpowered.test.services.FileOperations;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
@@ -25,6 +27,9 @@ public class Application implements CommandLineRunner {
 
     @Autowired
     private FileManager fileManager;
+
+    @Autowired
+    private FileOperations fileOperations;
 
     public static void main(String[] args) {
 
@@ -47,6 +52,8 @@ public class Application implements CommandLineRunner {
                     readFile();
                 } else if (option.equals(Option.SHOWFILE)) {
                     printFile();
+                } else if (option.equals(Option.COUNT)) {
+                    count();
                 }
 
             } else {
@@ -56,6 +63,23 @@ public class Application implements CommandLineRunner {
             option = printMessage();
 
         }
+
+    }
+
+    private void count() {
+
+        if (CURRENT_ADDRESS_BOOK == null) {
+            System.out.println(Messages.MISSING_FILE);
+            return;
+        }
+
+        System.out.println(Messages.CHOOSE_SEX_MESSAGE);
+        for (SexType sex : SexType.values())
+            System.out.println(sex.getIndex() + "- " + sex.getDescription());
+
+        SexType sexType = SexType.getByIndex(sc.nextInt());
+        System.out.println(String.format(Messages.COUNT_SEX_RESULT,
+                fileOperations.count(CURRENT_ADDRESS_BOOK, sexType), sexType));
 
     }
 
