@@ -10,4 +10,5 @@ public interface FileOperations {
 
     Long count(AddressBook addressBook, SexType sexType);
     Person oldest(AddressBook currentAddressBook);
+    Long difference(Person person01, Person person02);
 }

@@ -2,6 +2,7 @@ package com.inpowered.test.Utils;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
+import java.time.temporal.ChronoUnit;
 
 public class DateUtils {
 
@@ -22,6 +23,12 @@ public class DateUtils {
     public static String printDate(LocalDate birth) {
 
         return birth.format(FORMATTER);
+
+    }
+
+    public static Long differenceInDays(LocalDate date01, LocalDate date02) {
+
+        return date01.until(date02, ChronoUnit.DAYS);
 
     }
 }

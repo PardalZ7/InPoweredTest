@@ -1,5 +1,6 @@
 package com.inpowered.test.services.impl;
 
+import com.inpowered.test.Utils.DateUtils;
 import com.inpowered.test.entities.AddressBook;
 import com.inpowered.test.entities.Person;
 import com.inpowered.test.entities.enums.SexType;
@@ -19,6 +20,13 @@ public class FileOperationsImpl implements FileOperations {
 
         return addressBook.getPeople().stream().sorted((o1, o2) -> o1.getBirth().compareTo(o2.getBirth()))
                 .findFirst().orElse(null);
+
+    }
+
+    @Override
+    public Long difference(Person person01, Person person02) {
+
+        return DateUtils.differenceInDays(person01.getBirth(), person02.getBirth());
 
     }
 }

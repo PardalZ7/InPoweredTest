@@ -3,8 +3,10 @@ package com.inpowered.test;
 import com.inpowered.test.Utils.Messages;
 import com.inpowered.test.config.AppConfig;
 import com.inpowered.test.entities.AddressBook;
+import com.inpowered.test.entities.Person;
 import com.inpowered.test.entities.enums.Option;
 import com.inpowered.test.entities.enums.SexType;
+import com.inpowered.test.exceptions.InputExceptions.InvalidInputException;
 import com.inpowered.test.services.FileManager;
 import com.inpowered.test.services.FileOperations;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -56,6 +58,8 @@ public class Application implements CommandLineRunner {
                     count();
                 } else if (option.equals(Option.OLDEST)) {
                     oldest();
+                } else if (option.equals(Option.DIFF)) {
+                    diff();
                 }
 
             } else {
@@ -70,6 +74,29 @@ public class Application implements CommandLineRunner {
 
         }
 
+    }
+
+    private void diff() {
+
+        if (CURRENT_ADDRESS_BOOK == null) {
+            System.out.println(Messages.MISSING_FILE);
+            return;
+        }
+
+        Person person01 = choosePerson(Messages.CHOOSE_THE_FIRST_PERSON_MESSAGE);
+        Person person02 = choosePerson(Messages.CHOOSE_THE_SECOND_PERSON_MESSAGE);
+
+        System.out.println(String.format(Messages.DIFFERENCE_MESSAGE, person01, person02,
+                fileOperations.difference(person01, person02)));
+
+    }
+
+    private Person choosePerson(String message) {
+        System.out.println(message);
+        for (int i = 0; i < CURRENT_ADDRESS_BOOK.getPeople().size(); i++)
+            System.out.println(i + " - " + CURRENT_ADDRESS_BOOK.getPeople().get(i));
+
+        return CURRENT_ADDRESS_BOOK.getPeople().get(sc.nextInt());
     }
 
     private void oldest() {

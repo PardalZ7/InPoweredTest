@@ -6,7 +6,7 @@ public enum Option {
     SHOWFILE(2, "Print File"),
     COUNT(3, "Count by Sex"),
     OLDEST(4, "The oldest person"),
-    DIFF(5, "Difference between Bill and Paul"),
+    DIFF(5, "Difference between (days)"),
     EXIT(9, "Exit");
 
     private int index;

@@ -16,4 +16,7 @@ public class Messages {
     public static final String COUNT_SEX_RESULT = "There are %s people that match with %s\n";
     public static final String OLDEST_RESULT = "The oldest is %s\n";
     public static final String PRESS_ENTER_TO_MOVE_ON = "Press ENTER to continue";
+    public static final String CHOOSE_THE_FIRST_PERSON_MESSAGE = "Choose the first person";
+    public static final String CHOOSE_THE_SECOND_PERSON_MESSAGE = "Choose the second person";
+    public static final String DIFFERENCE_MESSAGE = "The difference, in days, between %s and %s is %s";
 }
