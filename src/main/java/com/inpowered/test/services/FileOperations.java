@@ -9,5 +9,5 @@ import java.io.IOException;
 public interface FileOperations {
 
     Long count(AddressBook addressBook, SexType sexType);
-
+    Person oldest(AddressBook currentAddressBook);
 }

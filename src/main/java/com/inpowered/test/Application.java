@@ -54,15 +54,31 @@ public class Application implements CommandLineRunner {
                     printFile();
                 } else if (option.equals(Option.COUNT)) {
                     count();
+                } else if (option.equals(Option.OLDEST)) {
+                    oldest();
                 }
 
             } else {
                 System.out.println(Messages.INVALID_OPTION_MESSAGE);
             }
 
+            System.out.println(Messages.PRESS_ENTER_TO_MOVE_ON);
+            sc.nextLine();
+            sc.nextLine();
+
             option = printMessage();
 
         }
+
+    }
+
+    private void oldest() {
+
+        if (CURRENT_ADDRESS_BOOK == null) {
+            System.out.println(Messages.MISSING_FILE);
+            return;
+        }
+        System.out.println(String.format(Messages.OLDEST_RESULT, fileOperations.oldest(CURRENT_ADDRESS_BOOK)));
 
     }
 
