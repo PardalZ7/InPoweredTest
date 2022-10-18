@@ -1,9 +1,11 @@
 package com.inpowered.test.entities;
 
+import com.inpowered.test.Utils.DateUtils;
 import com.inpowered.test.entities.enums.SexType;
 import com.inpowered.test.entities.factories.PersonBuilder;
 
 import java.time.LocalDate;
+import java.util.Date;
 
 public class Person {
 
@@ -48,4 +50,8 @@ public class Person {
         this.birth = birth;
     }
 
+    @Override
+    public String toString() {
+        return name + ", " + sexType.toString() + ", " + DateUtils.printDate(birth);
+    }
 }

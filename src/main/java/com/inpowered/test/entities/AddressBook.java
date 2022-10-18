@@ -3,22 +3,22 @@ package com.inpowered.test.entities;
 import java.util.ArrayList;
 import java.util.List;
 
-public class AdressBook {
+public class AddressBook {
 
     private String filePath;
     private List<Person> people;
 
-    public AdressBook(String filePath, List<Person> people) {
+    public AddressBook(String filePath, List<Person> people) {
         this.filePath = filePath;
         this.people = people;
     }
 
-    public AdressBook(String filePath) {
+    public AddressBook(String filePath) {
         this.filePath = filePath;
         this.people = new ArrayList<>();
     }
 
-    public AdressBook() {
+    public AddressBook() {
         this.people = new ArrayList<>();
     }
 
@@ -36,5 +36,22 @@ public class AdressBook {
 
     public void setPeople(List<Person> people) {
         this.people = people;
+    }
+
+    public void addPerson(Person person) {
+
+        this.people.add(person);
+
+    }
+
+    @Override
+    public String toString() {
+
+        StringBuilder outPut = new StringBuilder(this.filePath + "\n");
+
+        this.people.stream().forEach(person -> outPut.append(person + "\n"));
+
+        return outPut.toString();
+
     }
 }

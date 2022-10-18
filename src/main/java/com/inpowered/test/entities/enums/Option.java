@@ -3,9 +3,10 @@ package com.inpowered.test.entities.enums;
 public enum Option {
 
     READFILE(1, "Read File"),
-    MALECOUNT(2, "How many males"),
-    OLDEST(3, "The oldest person"),
-    DIFF(4, "Difference between Bill and Paul"),
+    SHOWFILE(2, "Print File"),
+    MALECOUNT(3, "How many males"),
+    OLDEST(4, "The oldest person"),
+    DIFF(5, "Difference between Bill and Paul"),
     EXIT(9, "Exit");
 
     private int index;
